@@ -15,7 +15,7 @@
 		SELECT * FROM user WHERE id = #{id} and username = #{username}
 	</select>
 	
-	<insert id="insert" parameterType="org.doosoft.spring.dataaccess.mybatis.domain.User">
+	<insert id="save" parameterType="org.doosoft.spring.dataaccess.mybatis.domain.User">
 		insert into user(username,fullName,firstName,lastName) values (#{username},#{fullname},#{firstname},#{lastname});
 	</insert>
 	

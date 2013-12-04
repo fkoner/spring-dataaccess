@@ -3,9 +3,7 @@ package org.doosoft.spring.dataaccess.mybatis.repository;
 import java.util.List;
 
 import org.doosoft.spring.dataaccess.mybatis.domain.User;
-import org.doosoft.spring.dataaccess.mybatis.repository.UserMapper;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +47,7 @@ public class UserMapperTest {
 		userInput.setFullname("User Test 3");
 		userInput.setLastname("Test");
 		
-		userMapper.insert(userInput);
+		userMapper.save(userInput);
 		User user = userMapper.findById(new Long(3));
 		Assert.assertEquals(new Long(3), user.getId());
 	}
