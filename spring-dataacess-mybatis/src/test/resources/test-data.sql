@@ -1,2 +1,0 @@
-insert into user(id,username,fullName,firstName,lastName) values (1,'user1','EDDU MELENDEZ','EDDU','MELENDEZ');
-insert into user(id,username,fullName,firstName,lastName) values (2,'user2','JESUS ASCAMA','JESUS','ASCAMA');

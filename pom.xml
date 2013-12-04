@@ -1,12 +1,40 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.doosoft.spring.dataaccess</groupId>
-  <artifactId>spring-dataaccess</artifactId>
-  <version>1.0.0</version>
-  <packaging>pom</packaging>
-  <name>spring-dataaccess</name>
-  <modules>
-  	<module>spring-dataacess-mybatis</module>
-  </modules>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.doosoft.spring.dataaccess</groupId>
+	<artifactId>spring-dataaccess</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<name>spring-dataaccess</name>
+	<modules>
+		<module>spring-dataaccess-mybatis</module>
+		<module>spring-dataaccess-mongodb</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-version>1.6</java-version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.2.2.RELEASE</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<target>${java-version}</target>
+					<source>${java-version}</source>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
