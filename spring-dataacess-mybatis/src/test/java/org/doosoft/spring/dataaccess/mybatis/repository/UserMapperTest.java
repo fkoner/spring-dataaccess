@@ -41,18 +41,16 @@ public class UserMapperTest {
 		Assert.assertEquals(new Long(1), user.getId());
 	}
 	
-	@Ignore
 	@Test
 	public void testInsert() {
 		User userInput = new User();
-		userInput.setId(new Long(3));
 		userInput.setUsername("user3");
 		userInput.setFirstname("User");
 		userInput.setFullname("User Test 3");
 		userInput.setLastname("Test");
 		
 		userMapper.insert(userInput);
-		User user = userMapper.find(userInput);
+		User user = userMapper.findById(new Long(3));
 		Assert.assertEquals(new Long(3), user.getId());
 	}
 
