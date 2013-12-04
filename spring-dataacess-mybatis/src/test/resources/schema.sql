@@ -1,0 +1,9 @@
+CREATE TABLE user
+(
+	id INTEGER NOT NULL,
+	username VARCHAR(20) NOT NULL,
+	fullName VARCHAR(100) NOT NULL,
+	firstName VARCHAR(100) NOT NULL,
+	lastName VARCHAR(100) NOT NULL,
+	PRIMARY KEY (id)
+);
