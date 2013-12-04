@@ -40,6 +40,12 @@ public class UserMapperTest {
 	}
 	
 	@Test
+	public void testFindRolesByUsername() {
+		User userList = userMapper.findRolesByUsername("user1");
+		Assert.assertEquals(2, userList.getRoleList().size());
+	}
+	
+	@Test
 	public void testInsert() {
 		User userInput = new User();
 		userInput.setUsername("user3");

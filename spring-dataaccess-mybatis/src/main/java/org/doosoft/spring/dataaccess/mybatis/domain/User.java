@@ -1,6 +1,7 @@
 package org.doosoft.spring.dataaccess.mybatis.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class User implements Serializable {
 
@@ -15,6 +16,8 @@ public class User implements Serializable {
 	private String firstname;
 	
 	private String lastname;
+	
+	private List<Role> roleList;
 	
 	public Long getId() {
 		return id;
@@ -54,6 +57,14 @@ public class User implements Serializable {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	
+	public List<Role> getRoleList() {
+		return roleList;
+	}
+	
+	public void setRoleList(List<Role> roleList) {
+		this.roleList = roleList;
 	}
 	
 }

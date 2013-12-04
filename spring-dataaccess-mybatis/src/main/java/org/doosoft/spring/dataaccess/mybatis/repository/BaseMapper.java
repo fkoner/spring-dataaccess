@@ -8,9 +8,9 @@ public interface BaseMapper<T> {
 	
 	List<User> findAll();
 
-	User findById(Long id);
+	T findById(Long id);
 
-	User find(User user);
+	T find(T entity);
 
 	void save(T entity);
 	

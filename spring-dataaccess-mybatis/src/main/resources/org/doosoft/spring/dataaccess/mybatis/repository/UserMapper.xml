@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="org.doosoft.spring.dataaccess.mybatis.repository.UserMapper">
-	
-	<select id="findAll" resultType="org.doosoft.spring.dataaccess.mybatis.domain.User" >
+<mapper namespace="org.doosoft.spring.dataaccess.mybatis.repository.UserMapper">
+
+	<resultMap type="org.doosoft.spring.dataaccess.mybatis.domain.User"
+		id="UserMap">
+		<id property="id" column="userId" />
+		<result property="username" column="username" />
+		<collection property="roleList" column="roleId" ofType="Role"
+			javaType="ArrayList" resultMap="RoleMap" />
+	</resultMap>
+
+	<resultMap type="org.doosoft.spring.dataaccess.mybatis.domain.Role"
+		id="RoleMap">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+	</resultMap>
+
+	<select id="findAll" resultType="org.doosoft.spring.dataaccess.mybatis.domain.User">
 		SELECT * from user
 	</select>
-	
-	<select id="findById" resultType="org.doosoft.spring.dataaccess.mybatis.domain.User" parameterType="long">
+
+	<select id="findById" resultType="org.doosoft.spring.dataaccess.mybatis.domain.User"
+		parameterType="long">
 		SELECT * FROM user WHERE id = #{value}
 	</select>
-	
-	<select id="find" parameterType="org.doosoft.spring.dataaccess.mybatis.domain.User" resultType="org.doosoft.spring.dataaccess.mybatis.domain.User">
-		SELECT * FROM user WHERE id = #{id} and username = #{username}
+
+	<select id="find" parameterType="org.doosoft.spring.dataaccess.mybatis.domain.User"
+		resultType="org.doosoft.spring.dataaccess.mybatis.domain.User">
+		SELECT * FROM user WHERE id = #{id} and username =
+		#{username}
 	</select>
 	
+	<select id="findRolesByUsername" resultMap="UserMap">
+		SELECT u.id as userId, u.username, r.id as roleId , r.name
+		FROM user u 
+		INNER JOIN user_role ur ON u.id = ur.userId
+		INNER JOIN role r ON ur.roleId = r.id   
+		WHERE u.username = #{value}
+	</select>
+
 	<insert id="save" parameterType="org.doosoft.spring.dataaccess.mybatis.domain.User">
-		insert into user(username,fullName,firstName,lastName) values (#{username},#{fullname},#{firstname},#{lastname});
+		insert into
+		user(username,fullName,firstName,lastName) values
+		(#{username},#{fullname},#{firstname},#{lastname});
 	</insert>
-	
+
 </mapper>
