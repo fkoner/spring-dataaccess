@@ -57,5 +57,19 @@ public class UserMapperTest {
 		User user = userMapper.findById(new Long(3));
 		Assert.assertEquals(new Long(3), user.getId());
 	}
+	
+	@Test
+	public void testCache() {
+		User userInput = new User();
+		userInput.setUsername("user3");
+		userInput.setFirstname("User");
+		userInput.setFullname("User Test 3");
+		userInput.setLastname("Test");
+		
+		userMapper.findAll();
+		userMapper.save(userInput);
+		List<User> userList = userMapper.findAll();
+		Assert.assertEquals(2, userList.size());
+	}
 
 }
