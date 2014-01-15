@@ -10,6 +10,12 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="org.doosoft.spring.dataaccess.mybatis.domain" />
+		<property name="plugins">
+			<array>
+				<bean
+					class="org.doosoft.spring.dataaccess.mybatis.plugin.MybatisSessionPlugin" />
+			</array>
+		</property>
 	</bean>
 
 	<bean id="transactionManager"
@@ -34,5 +40,7 @@
 		<property name="configLocation" value="classpath:ehcache.xml" />
 		<property name="shared" value="true" />
 	</bean>
+	
+	<bean id="auditorAwareBean" class="org.doosoft.spring.dataaccess.mybatis.auditor.AuditorAwareBean"/>
 
 </beans>

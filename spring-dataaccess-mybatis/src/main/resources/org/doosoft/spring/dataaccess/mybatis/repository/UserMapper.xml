@@ -41,8 +41,8 @@
 
 	<insert id="save" parameterType="org.doosoft.spring.dataaccess.mybatis.domain.User">
 		insert into
-		user(username,fullName,firstName,lastName) values
-		(#{username},#{fullname},#{firstname},#{lastname});
+		user(username,fullName,firstName,lastName,createdBy) values
+		(#{username},#{fullname},#{firstname},#{lastname},#{createdBy});
 	</insert>
 
 </mapper>

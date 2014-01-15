@@ -5,6 +5,7 @@ CREATE TABLE user
 	fullName VARCHAR(100) NOT NULL,
 	firstName VARCHAR(100) NOT NULL,
 	lastName VARCHAR(100) NOT NULL,
+	createdBy VARCHAR(100) NOT NULL,
 	PRIMARY KEY (id)
 );
 
